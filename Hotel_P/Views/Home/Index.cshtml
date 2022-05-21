@@ -1,0 +1,37 @@
+﻿
+@model List<Room>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table table-borderd">
+	<thead>
+		<tr>
+			<th>Room Number</th>
+			<th>Availability</th>
+			<th>Room Type</th>
+			<th>Capacity</th>
+			<th>Floor</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+			<td>@item.Id</td>
+			<td>@item.free</td>
+			<td>@item.room_type</td>
+			<td>@item.capacity</td>
+			<td>@item.floor</td>
+			<td>
+				@using(Html.BeginForm("Index","Reservation",FormMethod.Post))
+         {
+           <input type="hidden" name="ID" value="@item.Id" />
+           <input type="submit" value="Book" />
+         }
+			</td>
+			</tr>
+		}
+	</tbody>
+</table>
+

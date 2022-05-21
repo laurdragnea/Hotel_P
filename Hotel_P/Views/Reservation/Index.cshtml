@@ -1,0 +1,46 @@
+﻿@using Hotel_P.Models
+   
+@model reservation
+@{
+    ViewData["Title"] = "Reservation";
+}
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<h2>Room number @ViewBag.ID</h2>
+
+
+@using(Html.BeginForm("Index","Booking",FormMethod.Post)){
+
+
+    reservation ms;
+
+        <span>The ID:</span> @Html.TextBoxFor(ms => ms.Id)<br /><br />
+        @Html.ValidationMessageFor(ms => ms.Id)
+        <span>First Name: </span> @Html.TextBoxFor(ms => ms.fname)<br /><br />
+        @Html.ValidationMessageFor(ms => ms.fname)
+        <span>Last Name: </span>@Html.TextBoxFor(ms => ms.lname)<br /><br />
+        @Html.ValidationMessageFor(ms => ms.lname)
+        <span>Email: </span> @Html.TextBoxFor(ms => ms.email)<br /><br />
+        @Html.ValidationMessageFor(ms => ms.email)
+        <span>Phone: </span>@Html.TextBoxFor(ms => ms.phone)<br /><br />
+        @Html.ValidationMessageFor(ms => ms.phone)
+        <span>Address: </span> @Html.TextBoxFor(ms => ms.address)<br /><br />
+        @Html.ValidationMessageFor(ms => ms.address)
+        <br />
+        <span>From: </span>@Html.TextBoxFor(ms => ms.start_date)
+        <span> To </span>@Html.TextBoxFor(ms => ms.end_date)<br /><br />
+   
+
+
+        <input type="hidden" name="ID" value="m" />
+        <input type="hidden" name="ID" value="@ViewBag.ID" />
+        <input type="submit" value="Book" />
+
+    
+             
+         
+}
